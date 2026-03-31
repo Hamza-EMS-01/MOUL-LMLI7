@@ -832,9 +832,9 @@
                         </div>
                     </div>
                     <div class="contact-socials">
-                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://web.facebook.com" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                         <a href="https://t.me/HamzaZGR" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
                     </div>
                 </div>
