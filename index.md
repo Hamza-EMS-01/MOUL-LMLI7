@@ -978,12 +978,12 @@
             label: 'Sandwiches', hasSizes: false,
             addons: [{ id: 'frites', name: 'Frites', price: 5, isFrites: true }],
             items: [
-                { id: 's1', name: 'Chawarma Poulet', price: 20, img: 'https://picsum.photos/seed/chawarmap7/400/300.jpg' },
-                { id: 's2', name: 'Chawarma Poulet Large', price: 30, img: 'https://picsum.photos/seed/chawarmapl7/400/300.jpg' },
-                { id: 's3', name: 'Poulet Crinchy', price: 20, img: 'https://picsum.photos/seed/pouletcrinchys7/400/300.jpg' },
-                { id: 's4', name: 'Sandwich Américain', price: 23, img: 'https://picsum.photos/seed/americains7/400/300.jpg' },
-                { id: 's5', name: 'Sandwich Mixte', price: 20, img: 'https://picsum.photos/seed/mixtesand7/400/300.jpg' },
-                { id: 's6', name: 'Sandwich Cordon Bleu', price: 23, img: 'https://picsum.photos/seed/cordonsand7/400/300.jpg' }
+                { id: 's1', name: 'Chawarma Poulet', price: 20, img: 'https://cdn.imgchest.com/files/eb5533b48bf6.jpg' },
+                { id: 's2', name: 'Chawarma Poulet Large', price: 30, img: 'https://cdn.imgchest.com/files/b80ec7084879.jfif' },
+                { id: 's3', name: 'Sandwich Poulet Crinchy', price: 20, img: 'https://cdn.imgchest.com/files/89e13c60fce3.jpg' },
+                { id: 's4', name: 'Sandwich Américain', price: 23, img: 'https://cdn.imgchest.com/files/86f1560738c0.jpg' },
+                { id: 's5', name: 'Sandwich Mixte', price: 20, img: 'https://cdn.imgchest.com/files/879199f66af6.webp' },
+                { id: 's6', name: 'Sandwich Cordon Bleu', price: 23, img: 'https://cdn.imgchest.com/files/3a569c4e0a19.jpg' }
             ]
         },
         plats: {
