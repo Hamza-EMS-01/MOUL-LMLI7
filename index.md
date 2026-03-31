@@ -967,11 +967,11 @@
                 { id: 'gratin', name: 'Gratin', prices: [5, 8], isFrites: false }
             ],
             items: [
-                { id: 't1', name: 'Tacos Poulet', prices: [25, 35], img: 'https://picsum.photos/seed/tacospoulet7/400/300.jpg' },
-                { id: 't2', name: 'Tacos Viande Hachée', prices: [30, 40], img: 'https://picsum.photos/seed/tacosviande7/400/300.jpg' },
-                { id: 't3', name: 'Tacos Mixte', prices: [25, 35], img: 'https://picsum.photos/seed/tacosmixte7/400/300.jpg' },
-                { id: 't4', name: 'Tacos Cordon Bleu', prices: [25, 35], img: 'https://picsum.photos/seed/tacoscordon7/400/300.jpg' },
-                { id: 't5', name: 'Tacos Poulet Crinchy', prices: [25, 35], img: 'https://picsum.photos/seed/tacoscrinchy7/400/300.jpg' }
+                { id: 't1', name: 'Tacos Poulet', prices: [25, 35], img: 'https://cdn.imgchest.com/files/75d89d76f965.jpg' },
+                { id: 't2', name: 'Tacos Viande Hachée', prices: [30, 40], img: 'https://cdn.imgchest.com/files/45055e408a55.png' },
+                { id: 't3', name: 'Tacos Mixte', prices: [25, 35], img: 'https://cdn.imgchest.com/files/5a084d4a19bf.jpeg' },
+                { id: 't4', name: 'Tacos Cordon Bleu', prices: [25, 35], img: 'https://cdn.imgchest.com/files/5efc19f91d02.jpg' },
+                { id: 't5', name: 'Tacos Poulet Crinchy', prices: [25, 35], img: 'https://cdn.imgchest.com/files/0611ab3de827.jpg' }
             ]
         },
         sandwiches: {
