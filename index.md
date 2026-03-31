@@ -1025,9 +1025,9 @@
             label: 'Pasticcio', hasSizes: false,
             addons: [{ id: 'frites', name: 'Frites', price: 5, isFrites: true }],
             items: [
-                { id: 'ps1', name: 'Pasticcio Poulet', price: 30, img: 'https://picsum.photos/seed/pasticiopoulet7/400/300.jpg' },
-                { id: 'ps2', name: 'Pasticcio Mixte', price: 30, img: 'https://picsum.photos/seed/pasticiomixte7/400/300.jpg' },
-                { id: 'ps3', name: 'Pasticcio Jambon de Dinde', price: 30, img: 'https://picsum.photos/seed/pasticciojambon7/400/300.jpg' }
+                { id: 'ps1', name: 'Pasticcio Poulet', price: 30, img: 'https://cdn.imgchest.com/files/d028d4da1436.jpg' },
+                { id: 'ps2', name: 'Pasticcio Mixte', price: 30, img: 'https://cdn.imgchest.com/files/e7bfdf8b0729.webp' },
+                { id: 'ps3', name: 'Pasticcio Jambon de Dinde', price: 30, img: 'https://cdn.imgchest.com/files/c1df9a87bbde.webp' }
             ]
         }
     };
