@@ -990,22 +990,22 @@
             label: 'Plats', hasSizes: false,
             addons: [{ id: 'frites', name: 'Frites', price: 5, isFrites: true }],
             items: [
-                { id: 'p1', name: 'Emincé de Poulet', price: 35, img: 'https://picsum.photos/seed/emincepoulet7/400/300.jpg' },
-                { id: 'p2', name: 'Cordon Bleu', price: 35, img: 'https://picsum.photos/seed/cordonbleuplat7/400/300.jpg' },
-                { id: 'p3', name: 'Poulet Crinchy', price: 35, img: 'https://picsum.photos/seed/pouletcrinchyp7/400/300.jpg' },
-                { id: 'p4', name: 'Suprême de Poulet', price: 35, img: 'https://picsum.photos/seed/supremepoulet7/400/300.jpg' },
-                { id: 'p5', name: 'Pâtes Poulet Champignon', price: 35, img: 'https://picsum.photos/seed/patespoulet7/400/300.jpg' },
-                { id: 'p6', name: 'Plat Chawarma', price: 35, img: 'https://picsum.photos/seed/platchawarma7/400/300.jpg' }
+                { id: 'p1', name: 'Emincé de Poulet', price: 35, img: 'https://cdn.imgchest.com/files/ee05bd0d8108.webp' },
+                { id: 'p2', name: 'Cordon Bleu', price: 35, img: 'https://cdn.imgchest.com/files/9bbef4c768e0.jpg' },
+                { id: 'p3', name: 'Poulet Crinchy', price: 35, img: 'https://cdn.imgchest.com/files/5d6253651a2b.webp' },
+                { id: 'p4', name: 'Suprême de Poulet', price: 35, img: 'https://cdn.imgchest.com/files/85be4b46337d.jpg' },
+                { id: 'p5', name: 'Pâtes Poulet Champignon', price: 35, img: 'https://cdn.imgchest.com/files/2081aef5c8ed.jpg' },
+                { id: 'p6', name: 'Plat Chawarma', price: 35, img: 'https://cdn.imgchest.com/files/fbadd8a419cd.jpg' }
             ]
         },
         paninis: {
             label: 'Paninis', hasSizes: false,
             addons: [{ id: 'frites', name: 'Frites', price: 5, isFrites: true }],
             items: [
-                { id: 'pa1', name: 'Panini Poulet', price: 20, img: 'https://picsum.photos/seed/paninipoulet7/400/300.jpg' },
-                { id: 'pa2', name: 'Panini Mixte', price: 20, img: 'https://picsum.photos/seed/paninimixte7/400/300.jpg' },
-                { id: 'pa3', name: 'Panini Poulet Crinchy', price: 20, img: 'https://picsum.photos/seed/paninicrinchy7/400/300.jpg' },
-                { id: 'pa4', name: 'Panini Viande Hachée', price: 25, img: 'https://picsum.photos/seed/paniniviande7/400/300.jpg' }
+                { id: 'pa1', name: 'Panini Poulet', price: 20, img: 'https://cdn.imgchest.com/files/b4de2e72dbad.jpg' },
+                { id: 'pa2', name: 'Panini Mixte', price: 20, img: 'https://cdn.imgchest.com/files/0529ece0aa58.jpg' },
+                { id: 'pa3', name: 'Panini Poulet Crinchy', price: 20, img: 'https://cdn.imgchest.com/files/10d9aed06fa6.jpg' },
+                { id: 'pa4', name: 'Panini Viande Hachée', price: 25, img: 'https://cdn.imgchest.com/files/08dbe1bc873e.jpg' }
             ]
         },
         burgers: {
@@ -1015,10 +1015,10 @@
                 { id: 'extrafromage', name: 'Extra Fromage', price: 3, isFrites: false }
             ],
             items: [
-                { id: 'b1', name: 'Cheese Burger', price: 30, img: 'https://picsum.photos/seed/cheeseburger7/400/300.jpg' },
-                { id: 'b2', name: 'Double Cheese Burger', price: 40, img: 'https://picsum.photos/seed/doublecheese7/400/300.jpg' },
-                { id: 'b3', name: 'Chicken Burger', price: 25, img: 'https://picsum.photos/seed/chickenburger7/400/300.jpg' },
-                { id: 'b4', name: 'Egg Burger', price: 33, img: 'https://picsum.photos/seed/eggburger7/400/300.jpg' }
+                { id: 'b1', name: 'Cheese Burger', price: 30, img: 'https://cdn.imgchest.com/files/290ab0a71685.webp' },
+                { id: 'b2', name: 'Double Cheese Burger', price: 40, img: 'https://cdn.imgchest.com/files/0f1a4ea5997e.webp' },
+                { id: 'b3', name: 'Chicken Burger', price: 25, img: 'https://cdn.imgchest.com/files/23912ed1afb5.jpg' },
+                { id: 'b4', name: 'Egg Burger', price: 33, img: 'https://cdn.imgchest.com/files/6906713dfade.jpg' }
             ]
         },
         pasticcio: {
