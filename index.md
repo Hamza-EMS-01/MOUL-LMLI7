@@ -764,7 +764,7 @@
                     <p class="hero-desc">Découvrez nos tacos, burgers, sandwiches et plats préparés avec passion. Le vrai goût qui fait revenir.</p>
                     <div class="hero-actions">
                         <a href="#menu" class="btn-primary"><i class="fas fa-utensils"></i> Voir le Menu</a>
-                        <a href="tel:+212620250719" class="btn-outline"><i class="fas fa-phone"></i> Appeler Maintenant</a>
+                        <a href="tel:+212675279310" class="btn-outline"><i class="fas fa-phone"></i> Appeler Maintenant</a>
                     </div>
                     <div class="hero-stats">
                         <div><div class="hero-stat-num">30+</div><div class="hero-stat-label">Plats</div></div>
@@ -803,24 +803,17 @@
             <div class="contact-grid">
                 <div class="contact-info-list">
                     <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div>
-                            <div class="contact-item-label">Adresse</div>
-                            <div class="contact-item-value">Boulevard Mohammed V, Casablanca</div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div>
                             <div class="contact-item-label">Téléphone</div>
-                            <div class="contact-item-value"><a href="tel:+212620250719">+212 6 20 25 07 19</a></div>
+                            <div class="contact-item-value"><a href="tel:+212675279310">+212 6 75 27 93 10</a></div>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
                         <div>
                             <div class="contact-item-label">WhatsApp</div>
-                            <div class="contact-item-value"><a href="https://wa.me/212620250719" target="_blank">+212 6 20 25 07 19</a></div>
+                            <div class="contact-item-value"><a href="https://wa.me/212675279310" target="_blank">+212 6 75 27 93 10</a></div>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -938,9 +931,9 @@
     </div>
 
     <!-- FLOATING BUTTONS -->
-    <a href="https://wa.me/212620250719" target="_blank" class="float-btn float-whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/212675279310" target="_blank" class="float-btn float-whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     <a href="https://t.me/HamzaZGR" target="_blank" class="float-btn float-telegram" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-    <a href="tel:+212620250719" class="float-btn float-call" aria-label="Appeler"><i class="fas fa-phone"></i></a>
+    <a href="tel:+212675279310" class="float-btn float-call" aria-label="Appeler"><i class="fas fa-phone"></i></a>
 
 
     <script>
@@ -950,7 +943,7 @@
        Pour Telegram : utilisez votre @username (sans le @)
        ============================================================ */
     const CONFIG = {
-        restaurantPhone: '212620250719',    // Numéro WhatsApp (format international, sans +)
+        restaurantPhone: '212675279310',    // Numéro WhatsApp (format international, sans +)
         telegramUsername: 'HamzaZGR',       // Votre username Telegram (sans le @)
         restaurantName: 'MOUL LMLI7',
         currency: 'dh'
