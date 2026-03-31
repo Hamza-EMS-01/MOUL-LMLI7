@@ -827,7 +827,8 @@
                         <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <div>
                             <div class="contact-item-label">Horaires</div>
-                            <div class="contact-item-value">Tous les jours : 11h00 - 00h00</div>
+                            <div class="contact-item-value">Du lundi au samedi : 11h00 - 20h00</div>
+                            <div class="contact-item-value">Dimanche : Fermé</div>
                         </div>
                     </div>
                     <div class="contact-socials">
