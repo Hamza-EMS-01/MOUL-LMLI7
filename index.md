@@ -1,7 +1,7 @@
 <html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>MOUL LMLI7 - Fast Food Marocain</title>
     <meta name="description" content="MOUL LMLI7 - Le vrai goût du fast-food marocain. Tacos, Sandwiches, Burgers, Paninis et plus.">
 
@@ -36,6 +36,11 @@
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --font-display: 'Bebas Neue', sans-serif;
             --font-body: 'Poppins', sans-serif;
+
+            /* Responsive spacing */
+            --container-px: 20px;
+            --header-h: 68px;
+            --section-py: 80px;
         }
 
         *, *::before, *::after {
@@ -44,7 +49,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
+            scroll-padding-top: var(--header-h);
         }
 
         body {
@@ -54,6 +59,9 @@
             line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            /* Safe area pour iPhones avec notch */
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
         }
 
         body.no-scroll { overflow: hidden; }
@@ -67,7 +75,7 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 var(--container-px);
         }
 
         /* ============================================
@@ -84,7 +92,7 @@
 
         .loader-brand {
             font-family: var(--font-display);
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(2rem, 10vw, 4.5rem);
             color: var(--orange);
             letter-spacing: 4px;
             margin-bottom: 30px;
@@ -92,7 +100,7 @@
         }
 
         .loader-spinner {
-            width: 50px; height: 50px;
+            width: 44px; height: 44px;
             border: 3px solid var(--black-card);
             border-top-color: var(--orange);
             border-radius: 50%;
@@ -115,6 +123,8 @@
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.06);
             transition: var(--transition);
+            /* Safe area pour notch */
+            padding-top: env(safe-area-inset-top);
         }
         #header.scrolled {
             background: rgba(10, 10, 10, 0.95);
@@ -123,25 +133,26 @@
 
         .header-inner {
             display: flex; align-items: center; justify-content: space-between;
-            height: 72px;
+            height: var(--header-h);
         }
 
         .logo {
             font-family: var(--font-display);
-            font-size: 1.8rem;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
             color: var(--orange);
             letter-spacing: 3px;
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
-        .nav-links { display: flex; gap: 8px; }
+        .nav-links { display: flex; gap: 4px; }
         .nav-links a {
-            padding: 8px 18px;
+            padding: 8px 16px;
             border-radius: 50px;
-            font-size: 0.88rem;
-            font-weight: 500;
+            font-size: 0.85rem; font-weight: 500;
             color: var(--gray-light);
             transition: var(--transition);
+            white-space: nowrap;
         }
         .nav-links a:hover,
         .nav-links a.active {
@@ -150,29 +161,29 @@
         }
         .nav-links a.active { color: var(--orange); }
 
-        .header-actions { display: flex; align-items: center; gap: 8px; }
+        .header-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
         .cart-btn {
             position: relative;
-            width: 44px; height: 44px;
+            width: 42px; height: 42px;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             color: var(--white);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             transition: var(--transition);
             background: rgba(255,255,255,0.06);
         }
         .cart-btn:hover { background: var(--orange); }
 
         .cart-count {
-            position: absolute; top: -4px; right: -4px;
-            min-width: 20px; height: 20px;
+            position: absolute; top: -3px; right: -3px;
+            min-width: 18px; height: 18px;
             background: var(--orange);
             color: var(--white);
-            font-size: 0.7rem; font-weight: 700;
+            font-size: 0.65rem; font-weight: 700;
             border-radius: 50px;
             display: flex; align-items: center; justify-content: center;
-            padding: 0 5px;
+            padding: 0 4px;
             transform: scale(0);
             transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
@@ -180,10 +191,10 @@
 
         .mobile-menu-btn {
             display: none;
-            width: 44px; height: 44px;
+            width: 42px; height: 42px;
             border-radius: 50%;
             align-items: center; justify-content: center;
-            color: var(--white); font-size: 1.2rem;
+            color: var(--white); font-size: 1.15rem;
             background: rgba(255,255,255,0.06);
             transition: var(--transition);
         }
@@ -195,15 +206,16 @@
             background: rgba(10,10,10,0.97);
             backdrop-filter: blur(20px);
             display: flex; flex-direction: column;
-            align-items: center; justify-content: center; gap: 12px;
+            align-items: center; justify-content: center; gap: 8px;
             opacity: 0; visibility: hidden;
             transition: var(--transition);
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
         }
         #mobileNav.open { opacity: 1; visibility: visible; }
 
         #mobileNav a {
             font-family: var(--font-display);
-            font-size: 2.2rem;
+            font-size: clamp(1.8rem, 8vw, 2.5rem);
             letter-spacing: 3px;
             color: var(--gray-light);
             transition: var(--transition);
@@ -212,12 +224,13 @@
         #mobileNav a:hover { color: var(--orange); }
 
         .mobile-nav-close {
-            position: absolute; top: 20px; right: 20px;
-            width: 48px; height: 48px;
+            position: absolute; top: 16px; right: 16px;
+            width: 46px; height: 46px;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            color: var(--white); font-size: 1.5rem;
+            color: var(--white); font-size: 1.4rem;
             background: rgba(255,255,255,0.08);
+            margin-top: env(safe-area-inset-top);
         }
 
         /* ============================================
@@ -226,6 +239,7 @@
         #hero {
             position: relative;
             min-height: 100vh;
+            min-height: 100dvh; /* Dynamic viewport height pour mobile */
             display: flex; align-items: center;
             overflow: hidden;
         }
@@ -246,56 +260,58 @@
 
         .hero-content {
             position: relative; z-index: 2;
-            padding: 120px 0 80px;
+            padding: calc(var(--header-h) + 40px) 0 60px;
             max-width: 650px;
+            width: 100%;
         }
 
         .hero-badge {
             display: inline-flex; align-items: center; gap: 8px;
-            padding: 8px 20px;
+            padding: 7px 16px;
             background: rgba(255,107,0,0.15);
             border: 1px solid rgba(255,107,0,0.3);
             border-radius: 50px;
-            font-size: 0.82rem; font-weight: 500;
+            font-size: clamp(0.7rem, 2.2vw, 0.82rem); font-weight: 500;
             color: var(--orange-light);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             animation: fadeInUp 0.8s ease 0.2s both;
         }
-        .hero-badge i { font-size: 0.7rem; }
+        .hero-badge i { font-size: 0.65rem; }
 
         .hero-title {
             font-family: var(--font-display);
-            font-size: clamp(3.5rem, 12vw, 7rem);
-            line-height: 0.95;
-            letter-spacing: 4px;
+            font-size: clamp(3rem, 13vw, 7rem);
+            line-height: 0.92;
+            letter-spacing: 3px;
             color: var(--white);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             animation: fadeInUp 0.8s ease 0.4s both;
         }
         .hero-title .highlight { color: var(--orange); }
 
         .hero-desc {
-            font-size: 1.05rem;
+            font-size: clamp(0.88rem, 2.5vw, 1.05rem);
             color: var(--gray-light);
-            margin-bottom: 36px;
+            margin-bottom: 28px;
             max-width: 480px;
             animation: fadeInUp 0.8s ease 0.6s both;
         }
 
         .hero-actions {
-            display: flex; gap: 14px; flex-wrap: wrap;
+            display: flex; gap: 12px; flex-wrap: wrap;
             animation: fadeInUp 0.8s ease 0.8s both;
         }
 
         .btn-primary {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 14px 32px;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 13px 28px;
             background: var(--orange);
             color: var(--white);
-            font-weight: 600; font-size: 0.95rem;
+            font-weight: 600; font-size: clamp(0.85rem, 2.5vw, 0.95rem);
             border-radius: 50px;
             transition: var(--transition);
             box-shadow: 0 4px 20px var(--orange-glow);
+            white-space: nowrap;
         }
         .btn-primary:hover {
             background: var(--orange-dark);
@@ -304,14 +320,15 @@
         }
 
         .btn-outline {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 14px 32px;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 13px 28px;
             background: transparent;
             color: var(--white);
-            font-weight: 500; font-size: 0.95rem;
+            font-weight: 500; font-size: clamp(0.85rem, 2.5vw, 0.95rem);
             border-radius: 50px;
             border: 1.5px solid rgba(255,255,255,0.2);
             transition: var(--transition);
+            white-space: nowrap;
         }
         .btn-outline:hover {
             border-color: var(--orange);
@@ -320,16 +337,16 @@
         }
 
         .hero-stats {
-            display: flex; gap: 40px; margin-top: 60px;
+            display: flex; gap: 32px; margin-top: 48px;
             animation: fadeInUp 0.8s ease 1s both;
         }
         .hero-stat-num {
             font-family: var(--font-display);
-            font-size: 2.2rem; color: var(--orange);
+            font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--orange);
             letter-spacing: 1px;
         }
         .hero-stat-label {
-            font-size: 0.78rem; color: var(--gray);
+            font-size: clamp(0.65rem, 2vw, 0.78rem); color: var(--gray);
             text-transform: uppercase; letter-spacing: 1px;
         }
 
@@ -342,13 +359,13 @@
             pointer-events: none;
         }
         .hero-float-1 {
-            width: 400px; height: 400px;
+            width: clamp(200px, 40vw, 400px); height: clamp(200px, 40vw, 400px);
             background: var(--orange);
             top: 10%; right: -5%;
             animation: floatSlow 8s ease-in-out infinite;
         }
         .hero-float-2 {
-            width: 300px; height: 300px;
+            width: clamp(150px, 30vw, 300px); height: clamp(150px, 30vw, 300px);
             background: #FF4444;
             bottom: 10%; right: 20%;
             animation: floatSlow 10s ease-in-out infinite reverse;
@@ -367,7 +384,7 @@
            MENU SECTION
            ============================================ */
         #menu {
-            padding: 100px 0 80px;
+            padding: var(--section-py) 0;
             position: relative;
         }
         #menu::before {
@@ -375,22 +392,22 @@
             background: linear-gradient(90deg, transparent, rgba(255,107,0,0.3), transparent);
         }
 
-        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header { text-align: center; margin-bottom: 40px; }
         .section-label {
             display: inline-flex; align-items: center; gap: 8px;
-            font-size: 0.82rem; font-weight: 600;
+            font-size: clamp(0.7rem, 2.2vw, 0.82rem); font-weight: 600;
             color: var(--orange);
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .section-label::before, .section-label::after {
-            content: ''; width: 30px; height: 1px; background: var(--orange);
+            content: ''; width: clamp(16px, 4vw, 30px); height: 1px; background: var(--orange);
         }
 
         .section-title {
             font-family: var(--font-display);
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-size: clamp(2rem, 7vw, 3.5rem);
             letter-spacing: 3px;
             color: var(--white);
         }
@@ -399,18 +416,20 @@
         .cat-tabs {
             display: flex; gap: 8px;
             overflow-x: auto;
-            padding-bottom: 10px;
-            margin-bottom: 40px;
+            padding-bottom: 12px;
+            margin-bottom: 32px;
             scrollbar-width: none;
             -ms-overflow-style: none;
+            /* Permet le scroll sur mobile même quand le doigt part des tabs */
+            -webkit-overflow-scrolling: touch;
         }
         .cat-tabs::-webkit-scrollbar { display: none; }
 
         .cat-tab {
             flex-shrink: 0;
-            padding: 10px 22px;
+            padding: 9px 18px;
             border-radius: 50px;
-            font-size: 0.85rem; font-weight: 500;
+            font-size: clamp(0.78rem, 2.5vw, 0.85rem); font-weight: 500;
             color: var(--gray-light);
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.08);
@@ -428,8 +447,8 @@
         /* Menu Grid */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
         }
 
         /* Menu Card */
@@ -452,7 +471,7 @@
 
         .card-img {
             position: relative;
-            height: 190px;
+            height: clamp(150px, 25vw, 190px);
             overflow: hidden;
         }
         .card-img img {
@@ -468,60 +487,60 @@
         }
 
         .card-cat-badge {
-            position: absolute; top: 12px; left: 12px; z-index: 2;
-            padding: 4px 12px;
+            position: absolute; top: 10px; left: 10px; z-index: 2;
+            padding: 3px 10px;
             background: rgba(10,10,10,0.75);
             backdrop-filter: blur(8px);
             border-radius: 50px;
-            font-size: 0.72rem; font-weight: 600;
+            font-size: clamp(0.6rem, 2vw, 0.72rem); font-weight: 600;
             color: var(--orange);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* Badge frites sur la carte */
         .card-frites-badge {
-            position: absolute; top: 12px; right: 12px; z-index: 2;
-            padding: 4px 10px;
+            position: absolute; top: 10px; right: 10px; z-index: 2;
+            padding: 3px 8px;
             background: rgba(255,193,7,0.9);
             border-radius: 50px;
-            font-size: 0.68rem; font-weight: 700;
+            font-size: clamp(0.58rem, 1.8vw, 0.68rem); font-weight: 700;
             color: #1a1a1a;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        .card-body { padding: 16px 18px 18px; }
+        .card-body { padding: 14px 16px 16px; }
 
         .card-name {
-            font-weight: 600; font-size: 1.02rem;
+            font-weight: 600; font-size: clamp(0.88rem, 2.8vw, 1.02rem);
             color: var(--white);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             line-height: 1.3;
         }
 
         .card-price {
-            display: flex; align-items: baseline; gap: 8px;
-            margin-bottom: 6px;
+            display: flex; align-items: baseline; gap: 6px;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
         }
         .price-tag {
             font-family: var(--font-display);
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
             color: var(--orange);
             letter-spacing: 1px;
         }
-        .price-tag .curr { font-family: var(--font-body); font-size: 0.8rem; color: var(--gray); font-weight: 400; }
-        .price-sep { color: var(--gray-dark); font-size: 0.8rem; }
-        .price-small { font-size: 0.78rem; color: var(--gray); }
+        .price-tag .curr { font-family: var(--font-body); font-size: 0.75rem; color: var(--gray); font-weight: 400; }
+        .price-sep { color: var(--gray-dark); font-size: 0.75rem; }
+        .price-small { font-size: clamp(0.7rem, 2.2vw, 0.78rem); color: var(--gray); }
         .price-small span { color: var(--gray-light); font-weight: 600; }
 
         .card-addons-hint {
-            font-size: 0.72rem; color: var(--gray-dark);
-            margin-bottom: 14px;
-            display: flex; flex-wrap: wrap; gap: 6px;
+            font-size: clamp(0.6rem, 2vw, 0.72rem); color: var(--gray-dark);
+            margin-bottom: 12px;
+            display: flex; flex-wrap: wrap; gap: 4px;
         }
         .card-addons-hint span {
-            padding: 2px 8px;
+            padding: 2px 6px;
             background: rgba(255,255,255,0.04);
             border-radius: 4px;
             border: 1px solid rgba(255,255,255,0.06);
@@ -529,11 +548,11 @@
 
         .card-order-btn {
             width: 100%;
-            padding: 11px;
+            padding: 10px;
             background: rgba(255,107,0,0.1);
             border: 1px solid rgba(255,107,0,0.25);
             color: var(--orange);
-            font-weight: 600; font-size: 0.88rem;
+            font-weight: 600; font-size: clamp(0.8rem, 2.5vw, 0.88rem);
             border-radius: var(--radius-sm);
             display: flex; align-items: center; justify-content: center; gap: 8px;
             transition: var(--transition);
@@ -549,7 +568,7 @@
            CONTACT SECTION
            ============================================ */
         #contact {
-            padding: 100px 0 80px;
+            padding: var(--section-py) 0;
             background: var(--black-light);
             position: relative;
         }
@@ -561,38 +580,38 @@
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 36px;
             align-items: start;
         }
 
-        .contact-info-list { display: flex; flex-direction: column; gap: 20px; }
+        .contact-info-list { display: flex; flex-direction: column; gap: 18px; }
 
-        .contact-item { display: flex; gap: 16px; align-items: flex-start; }
+        .contact-item { display: flex; gap: 14px; align-items: flex-start; }
         .contact-icon {
-            width: 48px; height: 48px; flex-shrink: 0;
+            width: 44px; height: 44px; flex-shrink: 0;
             background: rgba(255,107,0,0.1);
             border: 1px solid rgba(255,107,0,0.2);
             border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
-            color: var(--orange); font-size: 1.1rem;
+            color: var(--orange); font-size: 1rem;
         }
         .contact-item-label {
-            font-size: 0.78rem; color: var(--gray);
+            font-size: clamp(0.68rem, 2vw, 0.78rem); color: var(--gray);
             text-transform: uppercase; letter-spacing: 1px;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
-        .contact-item-value { font-weight: 500; color: var(--white); font-size: 0.95rem; }
+        .contact-item-value { font-weight: 500; color: var(--white); font-size: clamp(0.85rem, 2.5vw, 0.95rem); }
         .contact-item-value a { transition: var(--transition); }
         .contact-item-value a:hover { color: var(--orange); }
 
-        .contact-socials { display: flex; gap: 12px; margin-top: 30px; }
+        .contact-socials { display: flex; gap: 10px; margin-top: 24px; }
         .social-link {
-            width: 46px; height: 46px;
+            width: 42px; height: 42px;
             background: rgba(255,255,255,0.06);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
-            color: var(--gray-light); font-size: 1.15rem;
+            color: var(--gray-light); font-size: 1.05rem;
             transition: var(--transition);
         }
         .social-link:hover {
@@ -605,28 +624,30 @@
             border: 1px solid rgba(255,255,255,0.06);
             border-radius: var(--radius);
             overflow: hidden;
-            height: 360px;
+            height: clamp(220px, 30vw, 360px);
             display: flex; align-items: center; justify-content: center;
-            flex-direction: column; gap: 16px;
+            flex-direction: column; gap: 14px;
             color: var(--gray);
         }
-        .contact-map i { font-size: 3rem; color: var(--orange); opacity: 0.5; }
-        .contact-map p { font-size: 0.9rem; }
+        .contact-map i { font-size: clamp(2rem, 5vw, 3rem); color: var(--orange); opacity: 0.5; }
+        .contact-map p { font-size: clamp(0.8rem, 2.5vw, 0.9rem); }
 
         /* ============================================
            FOOTER
            ============================================ */
         footer {
-            padding: 40px 0;
+            padding: 32px 0;
             border-top: 1px solid rgba(255,255,255,0.06);
             text-align: center;
+            /* Safe area bottom pour iPhone */
+            padding-bottom: calc(32px + env(safe-area-inset-bottom));
         }
         .footer-brand {
             font-family: var(--font-display);
-            font-size: 1.5rem; color: var(--orange);
-            letter-spacing: 3px; margin-bottom: 10px;
+            font-size: clamp(1.2rem, 4vw, 1.5rem); color: var(--orange);
+            letter-spacing: 3px; margin-bottom: 8px;
         }
-        .footer-copy { font-size: 0.8rem; color: var(--gray-dark); }
+        .footer-copy { font-size: clamp(0.7rem, 2.2vw, 0.8rem); color: var(--gray-dark); }
 
         /* ============================================
            CART SIDEBAR
@@ -641,67 +662,73 @@
 
         .cart-sidebar {
             position: fixed; top: 0; right: 0; bottom: 0; z-index: 2001;
-            width: 100%; max-width: 420px;
+            width: 100%; max-width: 400px;
             background: var(--black-light);
             border-left: 1px solid rgba(255,255,255,0.08);
             transform: translateX(100%);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex; flex-direction: column;
+            /* Safe area */
+            padding-top: env(safe-area-inset-top);
         }
         .cart-sidebar.open { transform: translateX(0); }
 
         .cart-header {
             display: flex; align-items: center; justify-content: space-between;
-            padding: 20px 24px;
+            padding: 16px 20px;
             border-bottom: 1px solid rgba(255,255,255,0.08);
+            flex-shrink: 0;
         }
         .cart-header h3 {
             font-family: var(--font-display);
-            font-size: 1.5rem; letter-spacing: 2px;
+            font-size: clamp(1.2rem, 4vw, 1.5rem); letter-spacing: 2px;
         }
         .cart-close-btn {
-            width: 38px; height: 38px; border-radius: 50%;
+            width: 36px; height: 36px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            color: var(--gray-light); font-size: 1.1rem;
+            color: var(--gray-light); font-size: 1rem;
             background: rgba(255,255,255,0.06);
             transition: var(--transition);
         }
         .cart-close-btn:hover { background: rgba(255,255,255,0.12); color: var(--white); }
 
-        .cart-items { flex: 1; overflow-y: auto; padding: 16px 24px; }
+        .cart-items { flex: 1; overflow-y: auto; padding: 12px 20px; }
 
         .cart-empty {
-            text-align: center; padding: 60px 20px; color: var(--gray);
+            text-align: center; padding: 50px 20px; color: var(--gray);
         }
-        .cart-empty i { font-size: 3rem; margin-bottom: 16px; opacity: 0.3; display: block; }
-        .cart-empty p { font-size: 0.9rem; }
+        .cart-empty i { font-size: clamp(2rem, 6vw, 3rem); margin-bottom: 14px; opacity: 0.3; display: block; }
+        .cart-empty p { font-size: clamp(0.8rem, 2.5vw, 0.9rem); }
 
         .cart-item {
-            display: flex; gap: 14px; align-items: center;
-            padding: 14px 0;
+            display: flex; gap: 12px; align-items: center;
+            padding: 12px 0;
             border-bottom: 1px solid rgba(255,255,255,0.05);
             animation: fadeInUp 0.3s ease;
         }
         .cart-item-img {
-            width: 56px; height: 56px; border-radius: 10px;
+            width: 50px; height: 50px; border-radius: 10px;
             object-fit: cover; flex-shrink: 0;
         }
         .cart-item-info { flex: 1; min-width: 0; }
         .cart-item-name {
-            font-weight: 600; font-size: 0.88rem;
+            font-weight: 600; font-size: clamp(0.8rem, 2.5vw, 0.88rem);
             white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         }
         .cart-item-detail {
-            font-size: 0.73rem; color: var(--orange); margin-top: 2px;
+            font-size: clamp(0.65rem, 2vw, 0.73rem); color: var(--orange); margin-top: 1px;
             font-weight: 500;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         }
         .cart-item-price {
-            font-weight: 700; font-size: 0.9rem; color: var(--orange);
+            font-weight: 700; font-size: clamp(0.8rem, 2.5vw, 0.9rem); color: var(--orange);
             white-space: nowrap;
+            margin-top: 2px;
         }
 
         .cart-item-actions {
             display: flex; flex-direction: column; align-items: center; gap: 4px;
+            flex-shrink: 0;
         }
         .qty-controls {
             display: flex; align-items: center;
@@ -709,38 +736,41 @@
             border-radius: 8px; overflow: hidden;
         }
         .qty-btn {
-            width: 30px; height: 30px;
+            width: 28px; height: 28px;
             display: flex; align-items: center; justify-content: center;
-            color: var(--gray-light); font-size: 0.85rem;
+            color: var(--gray-light); font-size: 0.8rem;
             transition: var(--transition);
         }
         .qty-btn:hover { background: rgba(255,255,255,0.1); color: var(--white); }
-        .qty-val { width: 28px; text-align: center; font-weight: 600; font-size: 0.85rem; }
+        .qty-val { width: 24px; text-align: center; font-weight: 600; font-size: 0.8rem; }
         .remove-btn {
-            font-size: 0.7rem; color: var(--danger);
+            font-size: 0.65rem; color: var(--danger);
             transition: var(--transition); padding: 2px;
         }
         .remove-btn:hover { color: #ff6666; }
 
         .cart-footer {
-            padding: 20px 24px;
+            padding: 16px 20px;
             border-top: 1px solid rgba(255,255,255,0.08);
+            flex-shrink: 0;
+            /* Safe area bottom */
+            padding-bottom: calc(16px + env(safe-area-inset-bottom));
         }
         .cart-total-row {
             display: flex; align-items: center; justify-content: space-between;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
-        .cart-total-label { font-size: 0.9rem; color: var(--gray-light); }
+        .cart-total-label { font-size: clamp(0.8rem, 2.5vw, 0.9rem); color: var(--gray-light); }
         .cart-total-value {
             font-family: var(--font-display);
-            font-size: 1.8rem; color: var(--orange);
+            font-size: clamp(1.4rem, 5vw, 1.8rem); color: var(--orange);
             letter-spacing: 1px;
         }
 
         .checkout-btn {
-            width: 100%; padding: 14px;
+            width: 100%; padding: 13px;
             background: var(--orange);
-            color: var(--white); font-weight: 600; font-size: 0.95rem;
+            color: var(--white); font-weight: 600; font-size: clamp(0.85rem, 2.5vw, 0.95rem);
             border-radius: var(--radius-sm);
             display: flex; align-items: center; justify-content: center; gap: 10px;
             transition: var(--transition);
@@ -756,8 +786,8 @@
             position: fixed; inset: 0; z-index: 3000;
             background: rgba(0,0,0,0.7);
             backdrop-filter: blur(6px);
-            display: flex; align-items: center; justify-content: center;
-            padding: 20px;
+            display: flex; align-items: flex-end; justify-content: center;
+            padding: 0;
             opacity: 0; visibility: hidden;
             transition: var(--transition);
         }
@@ -766,48 +796,58 @@
         .modal-box {
             background: var(--black-light);
             border: 1px solid rgba(255,255,255,0.08);
-            border-radius: var(--radius);
-            width: 100%; max-width: 460px;
-            max-height: 90vh; overflow-y: auto;
-            transform: scale(0.9) translateY(20px);
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: var(--radius) var(--radius) 0 0;
+            width: 100%; max-width: 480px;
+            max-height: 92vh;
+            max-height: 92dvh;
+            overflow-y: auto;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            /* Safe area bottom */
+            padding-bottom: env(safe-area-inset-bottom);
         }
-        .modal-overlay.open .modal-box { transform: scale(1) translateY(0); }
+        .modal-overlay.open .modal-box { transform: translateY(0); }
 
         .modal-close {
-            position: absolute; top: 16px; right: 16px;
+            position: sticky; top: 0; left: 0;
+            width: 100%;
+            height: 0; overflow: visible; z-index: 10;
+            display: flex; justify-content: flex-end;
+            padding: 12px 14px 0;
+        }
+        .modal-close-inner {
             width: 36px; height: 36px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            background: rgba(0,0,0,0.6); color: var(--white); font-size: 1.3rem;
-            transition: var(--transition); z-index: 5;
+            background: rgba(0,0,0,0.7); color: var(--white); font-size: 1.2rem;
+            transition: var(--transition);
+            backdrop-filter: blur(8px);
         }
-        .modal-close:hover { background: rgba(0,0,0,0.8); }
+        .modal-close-inner:hover { background: rgba(0,0,0,0.9); }
 
         .modal-img {
-            width: 100%; height: 200px; object-fit: cover;
-            border-radius: var(--radius) var(--radius) 0 0;
+            width: 100%; height: clamp(160px, 30vw, 200px); object-fit: cover;
         }
 
-        .modal-body { padding: 24px; position: relative; }
+        .modal-body { padding: 20px; }
 
         .modal-item-name {
             font-family: var(--font-display);
-            font-size: 1.6rem; letter-spacing: 1px;
-            margin-bottom: 20px;
+            font-size: clamp(1.3rem, 5vw, 1.6rem); letter-spacing: 1px;
+            margin-bottom: 18px;
         }
 
         /* Option labels */
         .option-label {
-            font-size: 0.78rem; font-weight: 600;
+            font-size: clamp(0.7rem, 2.2vw, 0.78rem); font-weight: 600;
             color: var(--gray); text-transform: uppercase;
             letter-spacing: 1px; margin-bottom: 8px;
         }
-        .option-label i { margin-right: 4px; color: var(--orange); font-size: 0.72rem; }
+        .option-label i { margin-right: 4px; color: var(--orange); font-size: 0.68rem; }
 
         /* Size Selector */
-        .size-options { display: flex; gap: 10px; margin-bottom: 22px; }
+        .size-options { display: flex; gap: 8px; margin-bottom: 20px; }
         .size-opt {
-            flex: 1; padding: 12px;
+            flex: 1; padding: 10px 8px;
             background: rgba(255,255,255,0.04);
             border: 1.5px solid rgba(255,255,255,0.1);
             border-radius: var(--radius-sm);
@@ -819,17 +859,17 @@
             border-color: var(--orange);
             background: rgba(255,107,0,0.1);
         }
-        .size-opt-name { font-weight: 600; font-size: 0.9rem; margin-bottom: 2px; }
-        .size-opt-price { font-size: 0.8rem; color: var(--orange); }
+        .size-opt-name { font-weight: 600; font-size: clamp(0.82rem, 2.8vw, 0.9rem); margin-bottom: 2px; }
+        .size-opt-price { font-size: clamp(0.72rem, 2.4vw, 0.8rem); color: var(--orange); }
 
         /* Addon Checkbox */
         .addon-option {
-            display: flex; align-items: center; gap: 12px;
-            padding: 12px 16px;
+            display: flex; align-items: center; gap: 10px;
+            padding: 10px 14px;
             background: rgba(255,255,255,0.04);
             border: 1.5px solid rgba(255,255,255,0.08);
             border-radius: var(--radius-sm);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             cursor: pointer;
             transition: var(--transition);
             user-select: none;
@@ -840,18 +880,18 @@
             background: rgba(255,107,0,0.08);
         }
         .addon-check {
-            width: 24px; height: 24px; border-radius: 7px;
+            width: 22px; height: 22px; border-radius: 6px;
             border: 2px solid var(--gray-dark);
             display: flex; align-items: center; justify-content: center;
             transition: var(--transition); flex-shrink: 0;
-            font-size: 0.7rem; color: transparent;
+            font-size: 0.65rem; color: transparent;
         }
         .addon-option.checked .addon-check {
             background: var(--orange); border-color: var(--orange);
             color: var(--white);
         }
-        .addon-text { font-size: 0.9rem; font-weight: 500; flex: 1; }
-        .addon-price { font-weight: 700; color: var(--orange); font-size: 0.9rem; white-space: nowrap; }
+        .addon-text { font-size: clamp(0.82rem, 2.8vw, 0.9rem); font-weight: 500; flex: 1; }
+        .addon-price { font-weight: 700; color: var(--orange); font-size: clamp(0.82rem, 2.8vw, 0.9rem); white-space: nowrap; }
 
         /* Frites addon special styling */
         .addon-option.frites-addon {
@@ -873,40 +913,40 @@
         /* Quantity in Modal */
         .modal-qty-row {
             display: flex; align-items: center; justify-content: space-between;
-            margin: 22px 0;
-            padding: 14px 0;
+            margin: 18px 0;
+            padding: 12px 0;
             border-top: 1px solid rgba(255,255,255,0.06);
             border-bottom: 1px solid rgba(255,255,255,0.06);
         }
-        .modal-qty-label { font-weight: 500; }
+        .modal-qty-label { font-weight: 500; font-size: 0.9rem; }
         .modal-qty-controls {
             display: flex; align-items: center;
             background: rgba(255,255,255,0.06);
             border-radius: 8px; overflow: hidden;
         }
         .modal-qty-btn {
-            width: 40px; height: 40px;
+            width: 38px; height: 38px;
             display: flex; align-items: center; justify-content: center;
-            color: var(--gray-light); font-size: 1.1rem;
+            color: var(--gray-light); font-size: 1rem;
             transition: var(--transition);
         }
         .modal-qty-btn:hover { background: rgba(255,255,255,0.1); color: var(--white); }
-        .modal-qty-val { width: 44px; text-align: center; font-weight: 700; font-size: 1.05rem; }
+        .modal-qty-val { width: 40px; text-align: center; font-weight: 700; font-size: 1rem; }
 
         .modal-total {
             display: flex; align-items: center; justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
-        .modal-total-label { font-size: 0.9rem; color: var(--gray-light); }
+        .modal-total-label { font-size: 0.88rem; color: var(--gray-light); }
         .modal-total-val {
             font-family: var(--font-display);
-            font-size: 2rem; color: var(--orange);
+            font-size: clamp(1.6rem, 6vw, 2rem); color: var(--orange);
         }
 
         .add-to-cart-btn {
-            width: 100%; padding: 14px;
+            width: 100%; padding: 13px;
             background: var(--orange);
-            color: var(--white); font-weight: 600; font-size: 0.95rem;
+            color: var(--white); font-weight: 600; font-size: clamp(0.88rem, 2.8vw, 0.95rem);
             border-radius: var(--radius-sm);
             display: flex; align-items: center; justify-content: center; gap: 10px;
             transition: var(--transition);
@@ -916,36 +956,36 @@
 
         /* Checkout Form */
         .checkout-summary {
-            max-height: 200px; overflow-y: auto;
-            margin-bottom: 20px;
-            padding-bottom: 16px;
+            max-height: 180px; overflow-y: auto;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
             border-bottom: 1px solid rgba(255,255,255,0.06);
         }
         .checkout-summary-item {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 6px 0; font-size: 0.85rem; gap: 10px;
+            padding: 5px 0; font-size: clamp(0.78rem, 2.5vw, 0.85rem); gap: 10px;
         }
         .checkout-summary-item .name { color: var(--gray-light); text-align: right; }
         .checkout-summary-item .price { font-weight: 600; color: var(--white); white-space: nowrap; }
         .checkout-summary-total {
             display: flex; justify-content: space-between;
-            padding: 10px 0 0; margin-top: 8px;
+            padding: 8px 0 0; margin-top: 6px;
             border-top: 1px solid rgba(255,255,255,0.08);
             font-weight: 700;
         }
         .checkout-summary-total .price {
             font-family: var(--font-display);
-            font-size: 1.3rem; color: var(--orange);
+            font-size: clamp(1.1rem, 4vw, 1.3rem); color: var(--orange);
         }
 
-        .form-group { margin-bottom: 16px; }
+        .form-group { margin-bottom: 14px; }
         .form-input {
-            width: 100%; padding: 13px 16px;
+            width: 100%; padding: 12px 14px;
             background: rgba(255,255,255,0.05);
             border: 1.5px solid rgba(255,255,255,0.1);
             border-radius: var(--radius-sm);
             color: var(--white);
-            font-size: 0.9rem;
+            font-size: clamp(0.85rem, 2.8vw, 0.9rem);
             transition: var(--transition);
             outline: none;
         }
@@ -954,50 +994,50 @@
             border-color: var(--orange);
             background: rgba(255,107,0,0.04);
         }
-        textarea.form-input { resize: vertical; min-height: 80px; }
+        textarea.form-input { resize: vertical; min-height: 70px; }
 
         .form-error {
-            font-size: 0.75rem; color: var(--danger);
+            font-size: 0.72rem; color: var(--danger);
             margin-top: 4px; display: none;
         }
         .form-error.show { display: block; }
 
         .submit-order-btn {
-            width: 100%; padding: 14px;
+            width: 100%; padding: 13px;
             background: #25D366;
-            color: var(--white); font-weight: 600; font-size: 0.95rem;
+            color: var(--white); font-weight: 600; font-size: clamp(0.88rem, 2.8vw, 0.95rem);
             border-radius: var(--radius-sm);
             display: flex; align-items: center; justify-content: center; gap: 10px;
             transition: var(--transition);
-            margin-top: 8px;
+            margin-top: 6px;
         }
         .submit-order-btn:hover { background: #1EBE57; transform: translateY(-1px); }
         .submit-order-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
         /* Success Modal */
-        .success-content { text-align: center; padding: 40px 30px; }
+        .success-content { text-align: center; padding: 36px 24px; }
         .success-check {
-            width: 80px; height: 80px; margin: 0 auto 24px;
+            width: 70px; height: 70px; margin: 0 auto 20px;
             background: rgba(34,197,94,0.15);
             border: 2px solid var(--success);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 2.2rem; color: var(--success);
+            font-size: 2rem; color: var(--success);
             animation: successPop 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
         @keyframes successPop { from { transform: scale(0); } to { transform: scale(1); } }
 
         .success-title {
             font-family: var(--font-display);
-            font-size: 1.8rem; letter-spacing: 2px;
-            margin-bottom: 12px;
+            font-size: clamp(1.4rem, 5vw, 1.8rem); letter-spacing: 2px;
+            margin-bottom: 10px;
         }
-        .success-desc { color: var(--gray-light); font-size: 0.9rem; margin-bottom: 28px; line-height: 1.6; }
+        .success-desc { color: var(--gray-light); font-size: clamp(0.82rem, 2.5vw, 0.9rem); margin-bottom: 24px; line-height: 1.6; }
         .success-close-btn {
-            padding: 12px 36px;
+            padding: 11px 32px;
             background: rgba(255,255,255,0.08);
             border: 1px solid rgba(255,255,255,0.15);
-            color: var(--white); font-weight: 500;
+            color: var(--white); font-weight: 500; font-size: 0.9rem;
             border-radius: 50px; transition: var(--transition);
         }
         .success-close-btn:hover { background: rgba(255,255,255,0.15); }
@@ -1007,46 +1047,206 @@
            ============================================ */
         .float-btn {
             position: fixed; z-index: 800;
-            width: 54px; height: 54px;
+            width: 50px; height: 50px;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            color: var(--white); font-size: 1.4rem;
+            color: var(--white); font-size: 1.3rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
             transition: var(--transition);
         }
         .float-btn:hover { transform: translateY(-3px); }
 
-        .float-whatsapp { bottom: 24px; right: 24px; background: #25D366; }
+        .float-whatsapp {
+            bottom: calc(20px + env(safe-area-inset-bottom));
+            right: calc(20px + env(safe-area-inset-right));
+            background: #25D366;
+        }
         .float-whatsapp:hover { background: #1EBE57; box-shadow: 0 6px 25px rgba(37,211,102,0.4); }
 
-        .float-call { bottom: 90px; right: 24px; background: var(--orange); }
+        .float-call {
+            bottom: calc(82px + env(safe-area-inset-bottom));
+            right: calc(20px + env(safe-area-inset-right));
+            background: var(--orange);
+        }
         .float-call:hover { background: var(--orange-dark); box-shadow: 0 6px 25px var(--orange-glow); }
 
         /* ============================================
-           RESPONSIVE
+           RESPONSIVE — TABLETTE (≤ 1024px)
+           ============================================ */
+        @media (max-width: 1024px) {
+            :root {
+                --container-px: 24px;
+                --section-py: 72px;
+            }
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 16px;
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE — PETITE TABLETTE (≤ 768px)
            ============================================ */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-menu-btn { display: flex; }
-            .hero-content { padding: 100px 0 60px; }
-            .hero-stats { gap: 24px; flex-wrap: wrap; }
-            .menu-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+            :root {
+                --header-h: 60px;
+                --section-py: 60px;
+            }
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
             .contact-grid { grid-template-columns: 1fr; }
-            .contact-map { height: 260px; }
-            .cart-sidebar { max-width: 100%; }
-            .float-whatsapp { bottom: 20px; right: 20px; width: 50px; height: 50px; }
-            .float-call { bottom: 82px; right: 20px; width: 50px; height: 50px; }
-            .modal-box { max-width: 100%; }
+            .card-body { padding: 12px 12px 14px; }
+            .card-img { height: 140px; }
+            .card-addons-hint { display: none; }
+            .hero-stats { gap: 20px; }
         }
 
-        @media (max-width: 400px) {
-            .menu-grid { grid-template-columns: 1fr; }
+        /* ============================================
+           RESPONSIVE — GRAND MOBILE (≤ 600px)
+           ============================================ */
+        @media (max-width: 600px) {
+            :root {
+                --container-px: 16px;
+                --section-py: 50px;
+            }
+            .hero-stats {
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+            .hero-stats > div {
+                min-width: calc(33% - 12px);
+            }
+            .contact-item { gap: 10px; }
+            .contact-icon { width: 38px; height: 38px; font-size: 0.9rem; }
+        }
+
+        /* ============================================
+           RESPONSIVE — PETIT MOBILE (≤ 480px)
+           ============================================ */
+        @media (max-width: 480px) {
+            .menu-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .card-img { height: 120px; }
+            .card-body { padding: 10px 10px 12px; }
+            .card-name { font-size: 0.82rem; margin-bottom: 4px; }
+            .card-cat-badge { padding: 2px 7px; font-size: 0.58rem; top: 8px; left: 8px; }
+            .card-frites-badge { padding: 2px 6px; font-size: 0.55rem; top: 8px; right: 8px; }
+            .price-tag { font-size: 1.1rem; }
+            .price-tag .curr { font-size: 0.68rem; }
+            .price-small { font-size: 0.65rem; }
+            .card-order-btn { padding: 8px; font-size: 0.75rem; gap: 5px; }
+            .card-order-btn i { font-size: 0.7rem; }
             .hero-actions { flex-direction: column; }
-            .hero-actions a { text-align: center; justify-content: center; }
+            .hero-actions a { width: 100%; justify-content: center; }
+            .cat-tab { padding: 8px 14px; font-size: 0.76rem; }
+            .hero-stats { gap: 12px; margin-top: 36px; }
+            .float-btn { width: 46px; height: 46px; font-size: 1.15rem; }
+            .modal-body { padding: 16px; }
+            .modal-qty-btn { width: 34px; height: 34px; }
+            .size-opt { padding: 8px 6px; }
+            .addon-option { padding: 8px 10px; gap: 8px; }
+            .addon-check { width: 20px; height: 20px; font-size: 0.6rem; }
+        }
+
+        /* ============================================
+           RESPONSIVE — TRÈS PETIT MOBILE (≤ 360px)
+           ============================================ */
+        @media (max-width: 360px) {
+            :root {
+                --container-px: 12px;
+                --header-h: 56px;
+            }
+            .logo { letter-spacing: 1px; }
+            .menu-grid { gap: 8px; }
+            .card-img { height: 105px; }
+            .card-body { padding: 8px 8px 10px; }
+            .card-name { font-size: 0.76rem; }
+            .card-order-btn { padding: 7px; font-size: 0.7rem; }
+            .hero-badge { padding: 5px 12px; font-size: 0.65rem; }
+            .section-label { font-size: 0.65rem; letter-spacing: 2px; }
+            .contact-socials { gap: 8px; }
+            .social-link { width: 38px; height: 38px; font-size: 0.95rem; }
+            .cart-item-img { width: 44px; height: 44px; }
+            .cart-item-actions .qty-btn { width: 26px; height: 26px; font-size: 0.75rem; }
+            .cart-item-actions .qty-val { width: 22px; font-size: 0.75rem; }
+        }
+
+        /* ============================================
+           RESPONSIVE — GRAND ÉCRAN (≥ 1200px)
+           ============================================ */
+        @media (min-width: 1200px) {
+            :root {
+                --container-px: 24px;
+            }
+            .menu-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE — TRÈS GRAND ÉCRAN (≥ 1600px)
+           ============================================ */
+        @media (min-width: 1600px) {
+            :root {
+                --container-px: 32px;
+            }
+            .menu-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 22px;
+            }
+        }
+
+        /* ============================================
+           ACCESSIBILITÉ : MOUVEMENT RÉDUIT
+           ============================================ */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ============================================
+           MODALS SUR DESKTOP : style centré classique
+           ============================================ */
+        @media (min-width: 769px) {
+            .modal-overlay {
+                align-items: center;
+                padding: 20px;
+            }
+            .modal-box {
+                border-radius: var(--radius);
+                max-height: 90vh;
+                transform: scale(0.9) translateY(20px);
+            }
+            .modal-overlay.open .modal-box {
+                transform: scale(1) translateY(0);
+            }
+            .modal-close {
+                position: absolute;
+                width: auto; height: auto; overflow: visible;
+                top: 14px; right: 14px;
+                padding: 0;
+                justify-content: flex-end;
+            }
+            .modal-close-inner {
+                width: 36px; height: 36px;
+            }
+            .modal-img {
+                border-radius: var(--radius) var(--radius) 0 0;
+            }
         }
 
         /* Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--gray-dark); border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--gray); }
@@ -1093,7 +1293,7 @@
     </div>
 
     <!-- HERO -->
-    <section id="home" style="scroll-margin-top:72px;">
+    <section id="home">
         <div id="hero">
             <div class="hero-bg"></div>
             <div class="hero-float hero-float-1"></div>
@@ -1122,7 +1322,7 @@
     </section>
 
     <!-- MENU -->
-    <section id="menu" style="scroll-margin-top:72px;">
+    <section id="menu">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Nos Spécialités</div>
@@ -1141,7 +1341,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" style="scroll-margin-top:72px;">
+    <section id="contact">
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Rendez-nous Visite</div>
@@ -1186,7 +1386,7 @@
                 <div class="contact-map">
                     <i class="fas fa-map-marked-alt"></i>
                     <p>Intégrez votre carte Google Maps ici</p>
-                    <span style="font-size:0.75rem;color:var(--gray-dark);">Remplacez ce bloc par une iframe Google Maps</span>
+                    <span style="font-size:0.72rem;color:var(--gray-dark);">Remplacez ce bloc par une iframe Google Maps</span>
                 </div>
             </div>
         </div>
@@ -1222,7 +1422,9 @@
     <!-- ORDER ITEM MODAL -->
     <div class="modal-overlay" id="orderModal">
         <div class="modal-box">
-            <button class="modal-close" id="orderModalClose" aria-label="Fermer">&times;</button>
+            <div class="modal-close" id="orderModalClose">
+                <div class="modal-close-inner">&times;</div>
+            </div>
             <img class="modal-img" id="orderModalImg" src="" alt="">
             <div class="modal-body" id="orderModalBody"></div>
         </div>
@@ -1231,7 +1433,9 @@
     <!-- CHECKOUT MODAL -->
     <div class="modal-overlay" id="checkoutModal">
         <div class="modal-box">
-            <button class="modal-close" id="checkoutModalClose" aria-label="Fermer">&times;</button>
+            <div class="modal-close" id="checkoutModalClose">
+                <div class="modal-close-inner">&times;</div>
+            </div>
             <div class="modal-body">
                 <h3 class="modal-item-name" style="margin-bottom:8px;">RÉCAPITULATIF</h3>
                 <div class="checkout-summary" id="checkoutSummary"></div>
@@ -1272,26 +1476,22 @@
     </div>
 
     <!-- FLOATING BUTTONS -->
-    <!-- ⚠️ REMPLACEZ +212620250719 par votre vrai numéro -->
     <a href="https://wa.me/212620250719" target="_blank" class="float-btn float-whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     <a href="tel:+212620250719" class="float-btn float-call" aria-label="Appeler"><i class="fas fa-phone"></i></a>
 
 
     <script>
     /* ============================================================
-       CONFIGURATION — Changez ces valeurs avec vos vraies infos
+       CONFIGURATION
        ============================================================ */
     const CONFIG = {
-        restaurantPhone: '212620250719',  // Numéro WhatsApp international (sans +)
+        restaurantPhone: '212620250719',
         restaurantName: 'MOUL LMLI7',
         currency: 'dh'
     };
 
     /* ============================================================
-       DONNÉES DU MENU — Structure complète avec suppléments
-       Chaque catégorie a "frites" en option (+5dh).
-       Tacos a en plus "gratin" (prix selon taille).
-       Burgers a en plus "extra fromage" (+3dh).
+       DONNÉES DU MENU
        ============================================================ */
     const MENU = {
         tacos: {
@@ -1386,14 +1586,9 @@
        ============================================================ */
     let cart = [];
     let currentCategory = 'tacos';
-
-    // État du modal de commande d'un article
     let orderModalState = {
-        item: null,
-        category: null,
-        selectedSize: 0,
-        selectedAddons: [],
-        quantity: 1
+        item: null, category: null,
+        selectedSize: 0, selectedAddons: [], quantity: 1
     };
 
     /* ============================================================
@@ -1401,29 +1596,30 @@
        ============================================================ */
     const $ = sel => document.querySelector(sel);
     const $$ = sel => document.querySelectorAll(sel);
+    const menuGrid = $('#menuGrid');
 
     /* ============================================================
        LOADING SCREEN
        ============================================================ */
     window.addEventListener('load', () => {
-        setTimeout(() => $('#loader').classList.add('hidden'), 1200);
+        setTimeout(() => $('#loader').classList.add('hidden'), 1000);
     });
 
     /* ============================================================
-       HEADER SCROLL
+       HEADER SCROLL & ACTIVE LINK
        ============================================================ */
     const header = $('#header');
     const sectionIds = ['home', 'menu', 'contact'];
 
     window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 50);
+        header.classList.toggle('scrolled', window.scrollY > 40);
         let current = 'home';
         for (const id of sectionIds) {
             const el = document.getElementById(id);
-            if (el && window.scrollY >= el.offsetTop - 120) current = id;
+            if (el && window.scrollY >= el.offsetTop - 100) current = id;
         }
         $$('.nav-links a').forEach(a => a.classList.toggle('active', a.dataset.section === current));
-    });
+    }, { passive: true });
 
     /* ============================================================
        MOBILE MENU
@@ -1455,9 +1651,8 @@
         cat.items.forEach((item, index) => {
             const card = document.createElement('div');
             card.className = 'menu-card';
-            card.style.transitionDelay = `${index * 0.06}s`;
+            card.style.transitionDelay = `${index * 0.05}s`;
 
-            // Prix affiché sur la carte
             let priceHTML = '';
             if (cat.hasSizes) {
                 priceHTML = `
@@ -1469,34 +1664,20 @@
                 priceHTML = `<div class="price-tag">${item.price}<span class="curr"> ${CONFIG.currency}</span></div>`;
             }
 
-            // Tailles si applicable
             let sizeBadge = '';
             if (cat.hasSizes) {
-                sizeBadge = `<span style="opacity:0.6"> · ${cat.sizeLabels.join(' / ')}</span>`;
-            }
-
-            // Liste des suppléments dispo (hinte sur la carte)
-            let addonsHint = '';
-            if (cat.addons.length > 0) {
-                const hints = cat.addons.map(a => {
-                    if (cat.hasSizes && a.prices) {
-                        return `+${a.prices[0]}/${a.prices[1]} ${a.name}`;
-                    }
-                    return `+${a.price} ${a.name}`;
-                });
-                addonsHint = `<div class="card-addons-hint">${hints.map(h => `<span>${h}</span>`).join('')}</div>`;
+                sizeBadge = `<span style="opacity:0.6;font-size:0.75em"> · ${cat.sizeLabels.join(' / ')}</span>`;
             }
 
             card.innerHTML = `
                 <div class="card-img">
                     <img src="${item.img}" alt="${item.name}" loading="lazy">
                     <div class="card-cat-badge">${cat.label}</div>
-                    <div class="card-frites-badge"><i class="fas fa-french-fries" style="margin-right:3px;font-size:0.6rem"></i> +Frites</div>
+                    <div class="card-frites-badge"><i class="fas fa-french-fries" style="margin-right:3px;font-size:0.55em"></i> +Frites</div>
                 </div>
                 <div class="card-body">
                     <div class="card-name">${item.name}${sizeBadge}</div>
                     <div class="card-price">${priceHTML}</div>
-                    ${addonsHint}
                     <button class="card-order-btn" data-id="${item.id}" data-cat="${category}">
                         <i class="fas fa-plus"></i> Commander
                     </button>
@@ -1505,13 +1686,11 @@
 
             menuGrid.appendChild(card);
 
-            // Animation d'entrée
             requestAnimationFrame(() => {
-                setTimeout(() => card.classList.add('visible'), 30 + index * 60);
+                setTimeout(() => card.classList.add('visible'), 20 + index * 50);
             });
         });
 
-        // Événements boutons commander
         $$('.card-order-btn').forEach(btn => {
             btn.addEventListener('click', e => {
                 openOrderModal(e.currentTarget.dataset.id, e.currentTarget.dataset.cat);
@@ -1532,19 +1711,16 @@
     });
 
     /* ============================================================
-       MODAL DE COMMANDE D'UN ARTICLE
+       MODAL DE COMMANDE
        ============================================================ */
     function openOrderModal(itemId, category) {
         const cat = MENU[category];
         const item = cat.items.find(i => i.id === itemId);
         if (!item) return;
 
-        // Reset de l'état
         orderModalState = {
             item, category,
-            selectedSize: 0,
-            selectedAddons: [],
-            quantity: 1
+            selectedSize: 0, selectedAddons: [], quantity: 1
         };
 
         $('#orderModalImg').src = item.img;
@@ -1552,7 +1728,6 @@
 
         let html = `<h3 class="modal-item-name">${item.name}</h3>`;
 
-        // Sélecteur de taille (Tacos uniquement)
         if (cat.hasSizes) {
             html += `
                 <div class="option-label"><i class="fas fa-ruler-horizontal"></i> Taille</div>
@@ -1567,7 +1742,6 @@
             `;
         }
 
-        // Suppléments : d'abord les frites (mis en avant), puis les autres
         html += `<div class="option-label" style="margin-top:8px;"><i class="fas fa-plus-circle"></i> Suppléments</div>`;
 
         cat.addons.forEach(addon => {
@@ -1587,7 +1761,6 @@
             `;
         });
 
-        // Quantité
         html += `
             <div class="modal-qty-row">
                 <span class="modal-qty-label">Quantité</span>
@@ -1599,27 +1772,21 @@
             </div>
         `;
 
-        // Total
         const basePrice = cat.hasSizes ? item.prices[0] : item.price;
         html += `
             <div class="modal-total">
                 <span class="modal-total-label">Total</span>
                 <span class="modal-total-val" id="modalTotalVal">${basePrice} ${CONFIG.currency}</span>
             </div>
+            <button class="add-to-cart-btn" id="addToCartBtn"><i class="fas fa-cart-plus"></i> Ajouter au Panier</button>
         `;
-
-        html += `<button class="add-to-cart-btn" id="addToCartBtn"><i class="fas fa-cart-plus"></i> Ajouter au Panier</button>`;
 
         $('#orderModalBody').innerHTML = html;
         attachOrderModalEvents(cat, item);
         openModal($('#orderModal'));
     }
 
-    /* ============================================================
-       ÉVÉNEMENTS DU MODAL DE COMMANDE
-       ============================================================ */
     function attachOrderModalEvents(cat, item) {
-        // Sélection de taille
         const sizeOpts = $$('#sizeOptions .size-opt');
         if (sizeOpts.length > 0) {
             sizeOpts.forEach(opt => {
@@ -1628,7 +1795,6 @@
                     opt.classList.add('selected');
                     orderModalState.selectedSize = parseInt(opt.dataset.size);
 
-                    // Mettre à jour le prix du gratin si la taille change
                     cat.addons.forEach(addon => {
                         if (addon.prices) {
                             const el = $(`.addon-option[data-addon="${addon.id}"]`);
@@ -1636,8 +1802,6 @@
                                 const newPrice = addon.prices[orderModalState.selectedSize];
                                 el.dataset.price = newPrice;
                                 el.querySelector('.addon-price').textContent = `+${newPrice} ${CONFIG.currency}`;
-
-                                // Mettre à jour dans selectedAddons si déjà coché
                                 const existing = orderModalState.selectedAddons.find(a => a.id === addon.id);
                                 if (existing) existing.price = newPrice;
                             }
@@ -1649,11 +1813,9 @@
             });
         }
 
-        // Toggle des suppléments
         $$('.addon-option').forEach(el => {
             el.addEventListener('click', () => {
                 el.classList.toggle('checked');
-
                 const addonId = el.dataset.addon;
                 const addonPrice = parseFloat(el.dataset.price);
 
@@ -1662,12 +1824,10 @@
                 } else {
                     orderModalState.selectedAddons = orderModalState.selectedAddons.filter(a => a.id !== addonId);
                 }
-
                 updateModalTotal(cat, item);
             });
         });
 
-        // Quantité +/-
         $('#modalQtyMinus').addEventListener('click', () => {
             if (orderModalState.quantity > 1) {
                 orderModalState.quantity--;
@@ -1683,14 +1843,12 @@
             }
         });
 
-        // Ajouter au panier
         $('#addToCartBtn').addEventListener('click', () => {
             addToCart(cat, item);
             closeModal($('#orderModal'));
         });
     }
 
-    /* Calcule et affiche le total dans le modal */
     function updateModalTotal(cat, item) {
         const basePrice = cat.hasSizes ? item.prices[orderModalState.selectedSize] : item.price;
         const addonsTotal = orderModalState.selectedAddons.reduce((s, a) => s + a.price, 0);
@@ -1706,14 +1864,10 @@
         const addonsTotal = orderModalState.selectedAddons.reduce((s, a) => s + a.price, 0);
         const unitPrice = basePrice + addonsTotal;
 
-        // Construire le nom descriptif avec les options choisies
         let name = item.name;
         let details = [];
 
-        if (cat.hasSizes) {
-            details.push(cat.sizeLabels[orderModalState.selectedSize]);
-        }
-
+        if (cat.hasSizes) details.push(cat.sizeLabels[orderModalState.selectedSize]);
         if (orderModalState.selectedAddons.length > 0) {
             orderModalState.selectedAddons.forEach(a => {
                 const addonDef = cat.addons.find(ad => ad.id === a.id);
@@ -1721,44 +1875,30 @@
             });
         }
 
-        const detail = details.join(' + ');
-
         cart.push({
             id: item.id + '_' + Date.now(),
-            name,
-            detail,
-            unitPrice,
-            quantity: orderModalState.quantity,
+            name, detail: details.join(' + '),
+            unitPrice, quantity: orderModalState.quantity,
             img: item.img
         });
 
         updateCartUI();
 
-        // Animation feedback sur le badge
         const badge = $('#cartCount');
         badge.style.transform = 'scale(1.5)';
         setTimeout(() => { badge.style.transform = ''; }, 250);
     }
 
-    function removeFromCart(index) {
-        cart.splice(index, 1);
-        updateCartUI();
-    }
+    function removeFromCart(index) { cart.splice(index, 1); updateCartUI(); }
 
     function changeQty(index, delta) {
         cart[index].quantity = Math.min(20, Math.max(1, cart[index].quantity + delta));
         updateCartUI();
     }
 
-    function getCartTotal() {
-        return cart.reduce((s, i) => s + i.unitPrice * i.quantity, 0);
-    }
+    function getCartTotal() { return cart.reduce((s, i) => s + i.unitPrice * i.quantity, 0); }
+    function getCartCount() { return cart.reduce((s, i) => s + i.quantity, 0); }
 
-    function getCartCount() {
-        return cart.reduce((s, i) => s + i.quantity, 0);
-    }
-
-    /* Met à jour toute l'interface du panier */
     function updateCartUI() {
         const count = getCartCount();
         const total = getCartTotal();
@@ -1797,7 +1937,7 @@
     }
 
     /* ============================================================
-       OUVRIR/FERMER LE PANIER LATÉRAL
+       PANIER LATÉRAL
        ============================================================ */
     function openCart() {
         $('#cartOverlay').classList.add('open');
@@ -1815,7 +1955,7 @@
     $('#cartOverlay').addEventListener('click', closeCart);
 
     /* ============================================================
-       MODAL DE CHECKOUT (récapitulatif + formulaire)
+       CHECKOUT
        ============================================================ */
     $('#checkoutBtn').addEventListener('click', () => {
         if (cart.length === 0) return;
@@ -1842,7 +1982,7 @@
     }
 
     /* ============================================================
-       VALIDATION DU FORMULAIRE & ENVOI
+       FORMULAIRE & ENVOI WHATSAPP
        ============================================================ */
     $('#checkoutForm').addEventListener('submit', e => {
         e.preventDefault();
@@ -1853,7 +1993,6 @@
         const address = $('#checkoutForm').address.value.trim();
         const notes = $('#checkoutForm').notes.value.trim();
 
-        // Reset erreurs
         $$('.form-error').forEach(el => el.classList.remove('show'));
 
         if (!name) { $('#nameError').classList.add('show'); valid = false; }
@@ -1862,11 +2001,9 @@
 
         if (!valid) return;
 
-        // Construire et envoyer le message WhatsApp
         const message = buildWhatsAppMessage(name, phone, address, notes);
         sendWhatsApp(message);
 
-        // Loading puis succès
         const btn = $('#submitOrderBtn');
         btn.disabled = true;
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
@@ -1879,14 +2016,10 @@
 
             cart = [];
             updateCartUI();
-
             setTimeout(() => openModal($('#successModal')), 300);
         }, 1500);
     });
 
-    /* ============================================================
-       CONSTRUCTION DU MESSAGE WHATSAPP
-       ============================================================ */
     function buildWhatsAppMessage(name, phone, address, notes) {
         let msg = `🛒 *Nouvelle Commande - ${CONFIG.restaurantName}*\n\n`;
         msg += `👤 *Client :* ${name}\n`;
@@ -1911,7 +2044,7 @@
     }
 
     /* ============================================================
-       UTILITAIRES MODAL
+       MODALS — OUVRIR / FERMER
        ============================================================ */
     function openModal(modal) {
         modal.classList.add('open');
@@ -1920,24 +2053,21 @@
 
     function closeModal(modal) {
         modal.classList.remove('open');
-        if (!$('.modal-overlay.open') && !$('#cartSidebar').classList.contains('open')) {
+        if (!$$('.modal-overlay.open').length && !$('#cartSidebar').classList.contains('open')) {
             document.body.classList.remove('no-scroll');
         }
     }
 
-    // Fermer en cliquant l'overlay
     $$('.modal-overlay').forEach(overlay => {
         overlay.addEventListener('click', e => {
             if (e.target === overlay) closeModal(overlay);
         });
     });
 
-    // Boutons fermer
     $('#orderModalClose').addEventListener('click', () => closeModal($('#orderModal')));
     $('#checkoutModalClose').addEventListener('click', () => closeModal($('#checkoutModal')));
     $('#successClose').addEventListener('click', () => closeModal($('#successModal')));
 
-    // Touche Escape
     document.addEventListener('keydown', e => {
         if (e.key !== 'Escape') return;
         if ($('#successModal').classList.contains('open')) closeModal($('#successModal'));
