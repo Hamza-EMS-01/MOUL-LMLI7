@@ -1306,8 +1306,22 @@
     }
 
     function sendViaTelegram(message) {
-        window.open(`https://t.me/${CONFIG.telegramUsername}?text=${encodeURIComponent(message)}`, '_blank');
-    }
+    const BOT_TOKEN = "8449384851:AAFJRv7Vyw7SyLwuTlDW_a4YoboqB8I19m8";
+    const CHAT_ID = "6940312028";
+
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: message
+        })
+    })
+    .then(() => console.log("Telegram sent ✅"))
+    .catch(err => console.error("Telegram error ❌", err));
+}
 
     /* ============================================================
        FORMULAIRE — un seul handler pour les deux boutons
@@ -1343,10 +1357,10 @@
         const isWhatsApp = platform === 'whatsapp';
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
 
+        sendViaTelegram(message);
+        
         if (isWhatsApp) {
             sendViaWhatsApp(message);
-        } else {
-            sendViaTelegram(message);
         }
 
         setTimeout(() => {
