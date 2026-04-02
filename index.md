@@ -817,13 +817,6 @@
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon"><i class="fab fa-telegram"></i></div>
-                        <div>
-                            <div class="contact-item-label">Telegram</div>
-                            <div class="contact-item-value"><a href="https://t.me/HamzaZGR" target="_blank">@HamzaZGR</a></div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <div>
                             <div class="contact-item-label">Horaires</div>
@@ -835,7 +828,6 @@
                         <a href="https://www.instagram.com" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://web.facebook.com" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.tiktok.com" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://t.me/HamzaZGR" target="_blank" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
                     </div>
                 </div>
                 <div class="contact-map">
@@ -933,7 +925,6 @@
 
     <!-- FLOATING BUTTONS -->
     <a href="https://wa.me/212675279310" target="_blank" class="float-btn float-whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://t.me/HamzaZGR" target="_blank" class="float-btn float-telegram" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
     <a href="tel:+212675279310" class="float-btn float-call" aria-label="Appeler"><i class="fas fa-phone"></i></a>
 
 
@@ -945,7 +936,6 @@
        ============================================================ */
     const CONFIG = {
         restaurantPhone: '212675279310',    // Numéro WhatsApp (format international, sans +)
-        telegramUsername: 'HamzaZGR',       // Votre username Telegram (sans le @)
         restaurantName: 'MOUL LMLI7',
         currency: 'dh'
     };
