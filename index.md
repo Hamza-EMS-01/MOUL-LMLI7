@@ -902,9 +902,6 @@
                         <button type="submit" class="send-btn send-btn-whatsapp" id="sendWhatsapp" data-platform="whatsapp">
                             <i class="fab fa-whatsapp"></i> WhatsApp
                         </button>
-                        <button type="submit" class="send-btn send-btn-telegram" id="sendTelegram" data-platform="telegram">
-                            <i class="fab fa-telegram"></i> Telegram
-                        </button>
                     </div>
                 </form>
             </div>
