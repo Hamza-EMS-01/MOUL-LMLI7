@@ -769,7 +769,7 @@
                     <div class="hero-stats">
                         <div><div class="hero-stat-num">30+</div><div class="hero-stat-label">Plats</div></div>
                         <div><div class="hero-stat-num">4.8</div><div class="hero-stat-label">Note Clients</div></div>
-                        <div><div class="hero-stat-num">30min</div><div class="hero-stat-label">Livraison</div></div>
+                        <div><div class="hero-stat-num">1H</div><div class="hero-stat-label">Livraison</div></div>
                     </div>
                 </div>
             </div>
